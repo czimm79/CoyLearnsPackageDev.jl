@@ -1,5 +1,9 @@
 module CoyLearnsPackageDev
 
-# Write your package code here.
+greet(x) = println("Hey package user $(x)!")
+
+include("functions.jl")
+
+export my_f
 
 end

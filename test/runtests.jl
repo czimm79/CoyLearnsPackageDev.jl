@@ -1,6 +1,8 @@
 using CoyLearnsPackageDev
 using Test
 
-@testset "CoyLearnsPackageDev.jl" begin
-    # Write your tests here.
+println("hi")
+
+@testset "CoyLearnsPackageDev.jl Unit tests" begin
+    @test my_f(2, 1) == 7
 end
