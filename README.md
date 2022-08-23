@@ -12,7 +12,11 @@ This repo is public so I can use GitHub Actions for free and learn about continu
 
 > How do I properly run the tests from the command line before pushing/committing?
 
+Go into `Pkg` mode using `]` in the repl, then simply run `test`.
+
 > What is a `git stash`?
+
+It looks like its a way to save your work and restore the repo to the latest clean commit. This allows you to switch branches. I probably won't get to into this quite yet.
 
 > How do I incorporate `Revise.jl`? Is it included in VSCode?
 
@@ -22,17 +26,21 @@ It is automatically included in the Julia VSCode extension, however, `Revise` mu
 
 > What are the important keybinds for `Julia in VSCode`?
 
-Keybindings are [here](https://www.julia-vscode.org/docs/stable/userguide/keybindings/). Big ones are 
+Keybindings are [here](https://www.julia-vscode.org/docs/stable/userguide/keybindings/).
 
 > How do I quickly and efficiently view Julia docs in VSCode? What are the keybinds?
 
-**TODO** Check these https://code.visualstudio.com/Docs/editor/editingevolved
+Here's a link for [common features in the editor](https://code.visualstudio.com/Docs/editor/editingevolved). Click around, and the IntelliSense section has some good stuff, mainly the symbols and the `cntrl+space` keybind, which I will now use *HEAVILY*. (It shows the docs when autocompleting)
 
 > How does Makie make use of `ReferenceTests.jl`? Will it be useful for my packages?
 
 > Can I clone using `dev --local` as in the Makie docs, edit, create new branch, commit, push, and create PR? Read the contributing page [here](https://julialang.org/contribute/opportunities/), especially the guide to contributing to `Images.jl`.
 
 > How do I create a package local environment and make it persist while I'm developing? Similar to Python virtual environments..?
+
+So it looks like VSCode just does it automatically and stores it in the `Project.toml` and `Manifest.toml` files.
+
+> How does Documenter.jl interact with `julia-repl` tags in docstrings for functions?
 
 
 # Initializing a new package
