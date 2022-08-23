@@ -10,6 +10,8 @@ This repo is public so I can use GitHub Actions for free and learn about continu
 # WIP Self Q&A
 > Why use julia package mode and `dev` a package? What does this do?
 
+`dev`, or `develop` in julia Pkg mode `]` is a slick way to clone a public package and place it in your `user/.julia/dev` folder for you to develop and make changes to. The advantage here is that your environment now *uses that package*. You can check it using `]status`.
+
 > How do I properly run the tests from the command line before pushing/committing?
 
 Go into `Pkg` mode using `]` in the repl, then simply run `test`.
@@ -24,6 +26,8 @@ It is automatically included in the Julia VSCode extension, however, `Revise` mu
 
 > Does `Revise.jl` remove the *hidden state* that is so frustrating with environments like Jupyter? Are there any catches I need to be aware of?
 
+1. It looks like it needs to be added as a package *in the project you're working in* for VSCode to automatically load it.
+
 > What are the important keybinds for `Julia in VSCode`?
 
 Keybindings are [here](https://www.julia-vscode.org/docs/stable/userguide/keybindings/).
@@ -35,6 +39,8 @@ Here's a link for [common features in the editor](https://code.visualstudio.com/
 > How does Makie make use of `ReferenceTests.jl`? Will it be useful for my packages?
 
 > Can I clone using `dev --local` as in the Makie docs, edit, create new branch, commit, push, and create PR? Read the contributing page [here](https://julialang.org/contribute/opportunities/), especially the guide to contributing to `Images.jl`.
+
+Yes! I will attempt to do this whole process to fix a Makie documentation bug here soon...
 
 > How do I create a package local environment and make it persist while I'm developing? Similar to Python virtual environments..?
 
