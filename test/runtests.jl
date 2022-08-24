@@ -2,6 +2,7 @@ using Test, Documenter
 using CoyLearnsPackageDev
 
 @testset "documenter tests" begin
+    DocMeta.setdocmeta!(CoyLearnsPackageDev, :DocTestSetup, :(using CoyLearnsPackageDev); recursive=true)
     doctest(CoyLearnsPackageDev)
 end
 
