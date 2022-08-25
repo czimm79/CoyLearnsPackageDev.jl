@@ -1,6 +1,10 @@
 my_f(x, y) = 2x+3y
 
-"Add three!"
+"""
+    add_three(x)
+
+Compute `x + 3`.
+"""
 function add_three(x)
     x + 3
 end
