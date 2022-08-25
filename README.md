@@ -1,5 +1,6 @@
 # CoyLearnsPackageDev
 
+[![Documentation, latest](https://img.shields.io/badge/docs-latest-blue.svg)](https://czimm79.github.io/CoyLearnsPackageDev.jl/dev/)
 [![Build Status](https://github.com/czimm79/CoyLearnsPackageDev.jl/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/czimm79/CoyLearnsPackageDev.jl/actions/workflows/CI.yml?query=branch%3Amaster)
 
 This repo is public so I can use GitHub Actions for free and learn about continuous integration (CI) while learning the ins and outs of proper Julia package development. None of this is really intended as a tutorial for others yet, and is just a reference for myself.
