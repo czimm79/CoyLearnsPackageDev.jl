@@ -14,7 +14,7 @@ end
 
 Compute `2x + 3y + 3`.
 
-# Example
+## Example
 ```jldoctest
 julia> super_function(3,2)
 15
