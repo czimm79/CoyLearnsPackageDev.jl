@@ -1,5 +1,10 @@
-using Test
+using Test, Documenter
 using CoyLearnsPackageDev
+
+@testset "documenter tests" begin
+    DocMeta.setdocmeta!(CoyLearnsPackageDev, :DocTestSetup, :(using CoyLearnsPackageDev); recursive=true)
+    doctest(CoyLearnsPackageDev)
+end
 
 @testset "superficial" begin
     @test my_f(2, 1) == 7
@@ -7,8 +12,9 @@ using CoyLearnsPackageDev
 end
 
 @testset "FFT" begin
-    tol = 0.055
-    # setup
+    error_tolerance = 0.055
+
+    # setup waveform with linear trend
     f1 = 3
     f2 = 5
     a1 = 1
@@ -24,18 +30,17 @@ end
     # fit_line
     m, b = fit_line(x, y)
 
-    @test isapprox(m, m_true, atol=tol)
-    @test isapprox(b, b_true, atol=tol)
+    @test isapprox(m, m_true, atol=error_tolerance)
+    @test isapprox(b, b_true, atol=error_tolerance)
 
     # detrend
     y_detrended = CoyLearnsPackageDev.detrend(y)
     
-    @test isapprox(fit_line(x, y_detrended)[1], 0.0, atol=tol)
+    @test isapprox(fit_line(x, y_detrended)[1], 0.0, atol=error_tolerance)
 
     # fft
     xf, yf = fftclean(x, y)
-    @test isapprox(yf[argmax(yf)], a1, atol=tol)
-    @test isapprox(xf[argmax(yf)], f1, atol=tol)
+    @test isapprox(yf[argmax(yf)], a1, atol=error_tolerance)
+    @test isapprox(xf[argmax(yf)], f1, atol=error_tolerance)
 
-    println(3)
 end
