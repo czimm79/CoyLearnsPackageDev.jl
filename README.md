@@ -14,7 +14,7 @@ This repo is public so I can use GitHub Actions for free and learn about continu
 
 > How do I properly run the tests from the command line before pushing/committing?
 
-Go into `Pkg` mode using `]` in the repl, then simply run `test`.
+Go into `Pkg` mode using `]` in the repl, then simply run `test`. This takes a bit longer as it looks like it creates a clean package environment. For quick testing, just run `include("test/runtests.jl")` in the VSCode julia terminal.
 
 > What is a `git stash`?
 
@@ -24,9 +24,9 @@ It looks like its a way to save your work and restore the repo to the latest cle
 
 It is automatically included in the Julia VSCode extension, however, `Revise` must be added in the current package environment (`]add Revise` in Julia REPL). Then, when opening a new REPL in VSCode, it is automatically loaded. This prevents the need to reload the repo or some other funky stuff. Just change the source code in any files, then run whatever you want in the same repo and it will update behind the scenes.
 
-> Does `Revise.jl` remove the *hidden state* that is so frustrating with environments like Jupyter? Are there any catches I need to be aware of?
+> Are there any catches I need to be aware of when using `Revise.jl`?
 
-1. It looks like it needs to be added as a package *in the project you're working in* for VSCode to automatically load it.
+* It looks like it needs to be added as a package *in the project you're working in* for VSCode to automatically load it.
 
 > What are the important keybinds for `Julia in VSCode`?
 
@@ -47,6 +47,8 @@ Yes! I will attempt to do this whole process to fix a Makie documentation bug he
 So it looks like VSCode just does it automatically and stores it in the `Project.toml` and `Manifest.toml` files.
 
 > How does Documenter.jl interact with `julia-repl` tags in docstrings for functions?
+
+It doesn't. Instead, it looks at `jldoctest` snippets and tests them using `doctest(CoyLearnsPackageDev)` that I've included in `runtests.jl` according to the docs.
 
 
 # Initializing a new package
@@ -80,3 +82,13 @@ Likewise, unit tests are ran from `test/runtests.jl`. The same stitching is used
     @test this_function(3) == 6
 end
 ```
+
+# Documentation
+It seems the vast majority of Julia packages manage their documentation with `Documenter.jl`. So, this'll what I'll learn and get accustomed to. I have a bit of experience from MuControl and using the Python analogue: Sphinx.
+
+The package initiation guide to get setup is fairly good and self explanatory. Two points though:
+1. When it asks you to use the terminal to run `julia make.jl`, just run the `make.jl` file inside of VSCode. This allows it to use the `Documenter.jl` that is in the project environment. This can also be done quickly by running the command `include("docs/make.jl")` in the terminal. (I like this the best)
+2. While setting things up locally, add the format kwarg `makedocs(sitename="My Documentation", format = Documenter.HTML(prettyurls = false))` to allow for easy local HTML browsing.
+
+It looks like `jldoctest`, or documentation tests, are most useful for keeping the documentation up to date and without error. This is in contrast to the tests in `test/` that minimizes code breakage during use.
+
