@@ -24,3 +24,6 @@ super_function
 
 ## Linking
 I can link to various pages and function docs using the `@ref` keyword, like [`super_function`](@ref)
+
+
+This is some cool live hosted documentation **y'all**.
